@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Rounds;
 use App\Http\Controllers\Controller;
 use \Serverfireteam\Panel\CrudController;
 
@@ -16,7 +17,7 @@ class roundsController extends CrudController{
         /** Simple code of  filter and grid part , List of all fields here : http://laravelpanel.com/docs/master/crud-fields
 */
 
-			$this->filter = \DataFilter::source(new \App\Rounds);
+			$this->filter = \DataFilter::source(new Rounds());
 			$this->filter->add('name', 'Name', 'text');
 			$this->filter->submit('search');
 			$this->filter->reset('reset');
@@ -37,7 +38,7 @@ class roundsController extends CrudController{
 
         /* Simple code of  edit part , List of all fields here : http://laravelpanel.com/docs/master/crud-fields
 	 */
-			$this->edit = \DataEdit::source(new \App\Rounds());
+			$this->edit = \DataEdit::source(new Rounds());
 
 			$this->edit->label('Edit Round');
 
