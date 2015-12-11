@@ -9,7 +9,7 @@ use App\Rounds;
 
 use Illuminate\Http\Request;
 
-class settingsController extends Controller{
+class SettingsController extends Controller{
 
    public function __construct() { }
 

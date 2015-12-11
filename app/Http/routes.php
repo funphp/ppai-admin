@@ -14,6 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/panel/settings', 'settingsController@index');
-Route::get('/panel/settings/edit/{id}', 'settingsController@edit');
-Route::post('/panel/settings/edit/{id}', 'settingsController@edit');
+Route::get('/panel/settings', 'SettingsController@index');
+Route::get('/panel/settings/edit/{id}', 'SettingsController@edit');
+Route::post('/panel/settings/edit/{id}', 'SettingsController@edit');
