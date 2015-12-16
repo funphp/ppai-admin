@@ -17,3 +17,9 @@ Route::get('/', function () {
 Route::get('/panel/settings', 'SettingsController@index');
 Route::get('/panel/settings/edit/{id}', 'SettingsController@edit');
 Route::post('/panel/settings/edit/{id}', 'SettingsController@edit');
+
+Route::get('/panel/rounds-settings', 'RoundsSettingsController@index');
+Route::get('/panel/rounds-settings/edit/{eventid}', 'RoundsSettingsController@index');
+
+Route::get('/panel/rounds-settings/edit/{eventid}/{id}', 'RoundsSettingsController@edit');
+Route::post('/panel/rounds-settings/edit/{eventid}/{id}', 'RoundsSettingsController@edit');

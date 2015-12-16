@@ -5,10 +5,10 @@
 <div class="row">
 		<div class="col-xs-4">
 		<div>
-		<h3>Round Settings for <b>{{$event->name}}</b></h3>
-		<select multiple="multiple" size="10" name="roundlistbox[]">
-		@foreach ($rounds as $round)
-		 <option value="{{ $round->id }}" {{($round->isSelected)?'selected="selected"':''}}>{{ $round->name }}</option>
+		<h3>Category Settings for <b>{{$event->name}}</b></h3>
+		<select multiple="multiple" size="10" name="catlistbox[]">
+		@foreach ($categories as $cat)
+		 <option value="{{ $cat->id }}" {{($cat->isSelected)?'selected="selected"':''}}>{{ $cat->name }}</option>
 		@endforeach
       
     </select>

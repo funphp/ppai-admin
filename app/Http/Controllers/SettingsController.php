@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Events;
 use App\Rounds;
+use App\Categories;
 
 use Illuminate\Http\Request;
 
@@ -23,30 +24,28 @@ class SettingsController extends Controller{
     public function edit(Request $request, $id)
     {
        
-       if($request->isMethod('post') && count($request->input('roundlistbox'))>0) {
+       if($request->isMethod('post') && count($request->input('catlistbox'))>0) {
 	       	$event = Events::find($id);
-	       	foreach($event->rounds as $r) {
-	       		$event->rounds()->detach($r->pivot->rounds_id);
+	       	foreach($event->categories as $r) {
+                $event->categories()->detach($r->pivot->categories_id);
 	       	}
-	       	foreach($request->input('roundlistbox') as $round_id){
-	       		$round = Rounds::find($round_id);
-	       		$event->rounds()->attach($round_id);
+	       	foreach($request->input('catlistbox') as $cat_id){
+                $event->categories()->attach($cat_id);
 	       	}
-	       	//$event->rounds()->save($request->input('roundlistbox'));
-	       	//print_r($request->input('roundlistbox'));die;
+
 
        }
-       $event = Events::find($id);
-       $rounds = Rounds::all();
-       foreach($rounds as $key=>$round) {
-       	 $rounds[$key]->isSelected = false;
-       	 foreach($event->rounds as $r) {
-       	 	if($r->pivot->rounds_id == $round->id){
-       	 		$rounds[$key]->isSelected = true;
+        $event = Events::find($id);
+       $categories = Categories::all();
+       foreach($categories as $key=>$cat) {
+           $categories[$key]->isSelected = false;
+       	 foreach($event->categories as $r) {
+       	 	if($r->pivot->categories_id == $cat->id){
+                $categories[$key]->isSelected = true;
        	 	}
 
        	 }
        }
-        return view('settings-edit',['rounds' => $rounds,'event'=>$event]);
+        return view('settings-edit',['categories' => $categories,'event'=>$event]);
     }
 }

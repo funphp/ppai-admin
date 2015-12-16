@@ -25,9 +25,11 @@ class eventsController extends CrudController{
 
 			$this->grid = \DataGrid::source($this->filter);
 			$this->grid->add('name', 'Name')->link('/panel/settings/edit/{{ $row->id }}');
+			$this->grid->add('{{ implode(", ", $row->categories()->lists("code")->all()) }}','Categories')->link('/panel/rounds-settings/edit/{{ $row->id }}');
+
 			$this->addStylesToGrid();
 
-        
+
                  
         return $this->returnView();
     }

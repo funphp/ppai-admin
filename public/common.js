@@ -1,7 +1,14 @@
 $(document).ready(function(){
-$('select[name="roundlistbox[]"]').bootstrapDualListbox();
+$('select[name="catlistbox[]"]').bootstrapDualListbox();
+	$('select[name="roundlistbox[]"]').bootstrapDualListbox();
+
+
 });
 
-function showRound(id){
+function showRound(eventid, id){
+	window.location='/panel/rounds-settings/edit/'+eventid+'/'+id;
+}
+
+function showCategory(id){
 	window.location='/panel/settings/edit/'+id;
 }

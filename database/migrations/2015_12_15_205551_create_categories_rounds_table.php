@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEventRoundTable extends Migration
+class CreateCategoriesRoundsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,17 +12,18 @@ class CreateEventRoundTable extends Migration
      */
     public function up()
     {
-        Schema::create('events_rounds', function (Blueprint $table) {
+        Schema::create('categories_rounds', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('events_id')->unsigned();
+            $table->integer('categories_id')->unsigned();
             $table->integer('rounds_id')->unsigned();
-            $table->foreign('events_id')
+            $table->integer('events_id')->unsigned();
+            $table->foreign('categories_id')
                 ->references('id')
-                ->on('events_tbl');
+                ->on('categories_2016_tbl');
             $table->foreign('rounds_id')
                 ->references('id')
                 ->on('rounds');
-            
+
         });
     }
 
@@ -33,6 +34,6 @@ class CreateEventRoundTable extends Migration
      */
     public function down()
     {
-        Schema::drop('events_rounds');
+        Schema::drop('categories_rounds');
     }
 }

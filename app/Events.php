@@ -8,9 +8,9 @@ class Events extends Model {
 
     protected $table = 'events_tbl';
 
-    public function rounds()
+    public function categories()
     {
-        return $this->belongsToMany('App\Rounds');
+        return $this->belongsToMany('App\Categories');
     }
 
 }

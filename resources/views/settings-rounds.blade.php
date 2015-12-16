@@ -3,9 +3,9 @@
 <script src="{{asset("common.js")}}"></script>
 <div class="row">
 		<div class="col-xs-4">
-		<select name="event" onchange="showCategory(this.value);">
-		@foreach ($events as $event)
-		 <option value="{{ $event->id }}">{{ $event->name }}</option>
+		<select name="category" onchange="showRound('{{$events->id}}',this.value);">
+		@foreach ($events->categories as $category)
+		 <option value="{{ $category->id }}">{{ $category->name }}</option>
 		@endforeach
       
     </select>
